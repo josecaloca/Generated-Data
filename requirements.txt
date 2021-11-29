@@ -1,0 +1,6 @@
+Faker==9.8.3
+scikit-learn @ file:///C:/ci/scikit-learn_1614446896245/work
+mkl-random @ file:///C:/ci/mkl_random_1618854156666/work
+pandas @ file:///C:/ci/pandas_1618365634936/work
+numpy @ file:///C:/ci/numpy_and_numpy_base_1618497418457/work
+scipy @ file:///C:/ci/scipy_1618856128765/work

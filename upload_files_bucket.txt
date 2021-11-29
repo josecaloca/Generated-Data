@@ -1,0 +1,14 @@
+1- Create notebook in Vertex AI Workbench 
+2- Run code in python console console
+3- Open terminal in Jupyterlab
+4. Push dataset to bucket as follows:
+
+# Create a bucket on Google Storage:
+# gsutil mb gs://synthetic-datasets/
+
+Upload csv file to your bucket in Google Storage:
+gsutil cp ____.csv gs://synthetic-datasets/
+
+Delete csv file from your VM Instance:
+rm ____.csv
+
