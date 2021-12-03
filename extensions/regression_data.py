@@ -82,11 +82,12 @@ def generate_data(n_rows, n_var, iter):
             transactional_data.append([transaction_date, name, gender, city, product_ID, amount_spent])
 
         categorical_df = pd.DataFrame(transactional_data, \
-                                        columns=['Transaction_date', \
-                                                'Name', 'Gender', \
-                                                'City', \
-                                                'Product_id', \
-                                                'Amount_spent']) 
+                                        columns=['transaction_date', \
+                                                'name', \
+                                                'gender', \
+                                                'city', \
+                                                'product_id', \
+                                                'amount_spent']) 
 
 
         # concatenations of the arrays and transformation to DF
@@ -117,9 +118,15 @@ def generate_data(n_rows, n_var, iter):
         # Export dataframe as CSV
         
         if i == 0:
-            df.to_csv(f'./files_regression/generated_data_regression_{i}.csv', index=False, header=True)
+            df.to_csv(f'./files_regression/generated_data_regression_{i}.csv', \
+                        index=False, \
+                        header=True, \
+                        encoding="utf-8")
         else:
-            df.to_csv(f'./files_regression/generated_data_regression_{i}.csv', index=False, header=False)
+            df.to_csv(f'./files_regression/generated_data_regression_{i}.csv', \
+                        index=False, \
+                        header=True, \
+                        encoding="utf-8")
             
         ###############################################  
         end_time = datetime.now()

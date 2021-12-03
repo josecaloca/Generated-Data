@@ -85,16 +85,17 @@ def generate_data(n_rows, n_var, iter):
             transactional_data.append([transaction_date, name, gender, city, product_ID, amount_spent])
 
         categorical_df = pd.DataFrame(transactional_data, \
-                                        columns=['Transaction_date', \
-                                                'Name', 'Gender', \
-                                                'City', \
-                                                'Product_id', \
-                                                'Amount_spent']) 
+                                        columns=['transaction_date', \
+                                                'name', \
+                                                'gender', \
+                                                'city', \
+                                                'product_id', \
+                                                'amount_spent']) 
 
 
         # concatenation of the arrays and transformation to DF
         df = pd.concat([y, categorical_df, X], axis=1)
-
+        
         # We insert randomly missing data into the continuous variables
         percentage_missing = np.arange(0, 0.05, 0.05/(n_variables*0.5))
         columns = df.columns[-(n_variables):]
@@ -104,13 +105,19 @@ def generate_data(n_rows, n_var, iter):
 
         # We reset index
         df.reset_index(drop=True, inplace=True)
-
+        
         # Export dataframe as CSV
         
         if i == 0:
-            df.to_csv(f'./files_classification/generated_data_classification_{i}.csv', index=False, header=True)
+            df.to_csv(f'./files_classification/generated_data_classification_{i}.csv', \
+                        index=False, \
+                        header=True, \
+                        encoding="utf-8")
         else:
-            df.to_csv(f'./files_classification/generated_data_classification_{i}.csv', index=False, header=True)
+            df.to_csv(f'./files_classification/generated_data_classification_{i}.csv', \
+                        index=False, \
+                        header=True, \
+                        encoding="utf-8")
             
         ###############################################  
         end_time = datetime.now()
